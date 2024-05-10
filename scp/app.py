@@ -30,7 +30,7 @@ def get_vectorstore_from_url(url):
 
 
 def get_context_retriever_chain(vector_store):
-    llm = ChatOpenAI() #model='gpt-3.5-turbo-16k-0613'
+    llm = ChatOpenAI(model='gpt-3.5-turbo-1106', api_key='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') #model='gpt-3.5-turbo-16k-0613'
 
     retriever = vector_store.as_retriever()
 
@@ -47,7 +47,7 @@ def get_context_retriever_chain(vector_store):
 
 
 def get_conversational_rag_chain(retriever_chain):
-    llm = ChatOpenAI(model='gpt-3.5-turbo-1106')
+    llm = ChatOpenAI(model='gpt-3.5-turbo-1106', api_key='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')
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", "Answer the user's questions based on the below context:\n\n{context}"),
